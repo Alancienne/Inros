@@ -1,0 +1,45 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the {body} of the default.hbs template --}}
+<div class="main">
+    {{#tag}}
+    <div class="container">
+        <div class="archive-cover">
+            <div class="archive-cover-inner cover-tag flex{{#if feature_image}} has-image{{/if}}">
+                {{#if feature_image}}
+                <img class="cover-image lazy" loading="lazy"
+                    srcset="{{img_url feature_image size="s"}} 400w,
+                        {{img_url feature_image size="m"}} 600w,
+                        {{img_url feature_image size="l"}} 1000w,
+                        {{img_url feature_image size="l"}} 1200w,
+                        {{img_url feature_image size="xl"}} 1400w,"
+                    sizes="(max-width: 440px) 400px, (max-width: 640px) 600px, (max-width: 1080px) 1000px, (max-width:1280px) 1200px, 1400px"
+                    src="{{img_url feature_image size="xl"}}" alt="{{name}} tag feature image">
+                {{/if}}
+                <div class="cover-content-wrapper">
+                    <div class="tag-info-wrap text-center">
+                        <h1 class="tag-name">{{name}}</h1>
+                        <div class="tag-post-count">
+                            {{plural ../pagination.total empty=(t "0 Post") singular=(t "1 Post") plural=(t "% Posts")}}
+                        </div>
+                        {{#if description}}
+                        <div class="tag-description">
+                            {{description}}
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/tag}}
+    <div class="container">
+        <div class="row js-post-list-wrap post-list-wrap">
+            {{> loop}}
+        </div>
+    </div>
+    {{pagination}}
+</div>
+{{!-- Show subscription section to guest visitors --}}
+{{#unless @member}}
+{{> newsletter-subscription}}
+{{/unless}}

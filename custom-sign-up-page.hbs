@@ -1,0 +1,52 @@
+{{!< default-no-header-footer}}
+{{!-- The tag above means: insert everything in this file into the {body} of the default-no-header-footer.hbs template --}}
+<div class="main">
+    {{#if @member}}
+    <script>window.location = '{{@site.url}}/account/';</script>
+    {{else}}
+    {{!-- start including custom style for cover image --}}
+    {{#post}}
+    {{#if feature_image}}
+    {{> scripts/cover-image-style background=feature_image}}
+    {{/if}}
+    {{/post}}
+    {{!-- ending cover image css --}}
+    <div class="members-page-wrap{{#post}}{{#if feature_image}} responsive-header-img{{/if}}{{/post}}">
+        <div class="members-content-wrap">
+            <div class="members-wrap">
+                <div class="header-logo logo-wrap">
+                    {{> logo}}
+                </div>
+                <h1 class="members-title h3 text-center">
+                    {{t "Sign up"}}
+                </h1>
+                <div class="members-description text-center">
+                    {{t "Get access to members only content."}}
+                </div>
+                <form class="members-form text-left js-member-form" data-members-form="signup" autocomplete="off">
+                    <div class="form-field-wrap">
+                        <label for="name" class="sr-only">Your name</label>
+                        <input data-members-name type="text" class="name form-field" id="name" placeholder="{{t "Your name"}}" required autocomplete="off">
+                        <label for="email" class="sr-only">Email</label>
+                        <input data-members-email="" type="email" class="email form-field" id="email" placeholder="{{t "Your email address"}}" required="" autocomplete="off">
+                        <button class="btn btn-block form-field" type="submit" name="submit"><span>{{t "Continue"}}</span></button>
+                    </div>
+                    <div class="message-container">
+                        <div class="notification success form-notification">
+                            <a class="notification-close" href="javascript:;" aria-label="close notification"><span class="close-icon"><svg><use xlink:href="#i-close"/></svg></span></a>
+                            <strong>{{t "Great!"}}</strong> {{t "Check your inbox and click the link to confirm your subscription"}}
+                        </div>
+                        <div class="notification error form-notification">
+                            <a class="notification-close" href="javascript:;" aria-label="close notification"><span class="close-icon"><svg><use xlink:href="#i-close"/></svg></span></a>
+                            <strong>{{t "Error!"}}</strong> {{t "Sorry, something went wrong. Please try again."}}
+                        </div>
+                    </div>
+                </form>
+                <div class="alternate-option text-center">
+                    {{t "Already have an account?"}} {{#link href="/signin/"}}{{t "Sign in"}}{{/link}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+</div>

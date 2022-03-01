@@ -1,0 +1,33 @@
+<section class="email-subs">
+    <div class="container">
+        <div class="email-subs-wrap flex">
+            <div class="text-wrap">
+                <h2 class="h1 email-subs-section-title">{{t "Subscribe to  {blogtitle}" blogtitle=@site.title}}</h2>
+                <div class="email-subs-section-description">
+                    {{t "Get all the latest posts delivered straight to your inbox."}}
+                </div>
+            </div>
+            <div class="form-wrap">
+                <form class="members-form subscribe-form text-left" data-members-form="subscribe">
+                    <div class="form-field-wrap field-group-inline">
+                        <label for="name" class="sr-only">{{t "Name"}}</label>
+                        <input data-members-name="" type="text" class="name form-field input-field input-lg" id="name" placeholder="Your name" required="" autocomplete="off">
+                        <label for="email" class="sr-only">{{t "Email"}}</label>
+                        <input data-members-email="" type="email" class="email form-field input-field input-lg" id="email" placeholder="Your email address" required="" autocomplete="off">
+                        <button class="btn form-field btn-lg" type="submit"><span>{{t "Subscribe"}}</span></button>
+                    </div>
+                    <div class="message-container">
+                        <div class="notification success form-notification">
+                            <a class="notification-close" href="javascript:;" aria-label="close notification"><span class="close-icon"><svg><use xlink:href="#i-close"/></svg></span></a>
+                            <strong>{{t "Great!"}}</strong> {{t "Check your inbox and click the link to confirm your subscription."}}
+                        </div>
+                        <div class="notification error form-notification">
+                            <a class="notification-close" href="javascript:;" aria-label="close notification"><span class="close-icon"><svg><use xlink:href="#i-close"/></svg></span></a>
+                            <strong>{{t "Error!"}}</strong> {{t "Please enter a valid email address!"}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

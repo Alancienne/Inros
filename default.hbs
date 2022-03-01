@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+	<head>
+		{{! Document Settings }}
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{{! Page Meta }}
+		<title>{{meta_title}}</title>
+		{{! Styles'n'Scripts }}
+		{{> google-font}}
+		<link rel="preconnect" href="{{@site.url}}">
+        <link href="{{asset "css/screen.min.css"}}" rel="stylesheet">
+		{{> scripts/color-scheme}}
+		{{! Ghost outputs important style and meta data with this tag }}
+		{{ghost_head}}
+	</head>
+	<body class="{{body_class}}" data-nav="sticky-hide">
+		{{>icons/global-icons}}
+		<div class="site-wrap">
+		{{! insert header partial}}
+		{{> header}}
+		{{{body}}}
+		
+        {{! insert footer partial}}
+        {{> footer}}
+		</div>
+		{{> search-popup}}
+		{{> members/notifications}}
+		{{! Starting javascript code}}
+		<script>
+			{{!-- /* variables for load more button */ --}}
+            var nextPage = '{{pagination.next}}';
+            var totalPages = '{{pagination.pages}}';
+			{{!-- /* variable for Quote tweet link */ --}}
+			var TweetQuoteText ='<svg><use xlink:href="#i-twitter"/></svg><span>{{t "Tweet this"}}</span>';
+        </script>
+		{{!-- The #block helper will pull in data from the #contentFor other template files. --}}
+		{{{block "scripts"}}}
+		{{!-- including theme's javascript --}}
+		<script src="{{asset "js/app.bundle.min.js"}}"></script>
+        {{ghost_foot}}
+	</body>
+</html>

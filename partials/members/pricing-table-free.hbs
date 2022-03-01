@@ -1,0 +1,18 @@
+<div class="pricing-table flex">
+    <div class="table-header text-center">
+        <div class="table-title">{{t "Free plan"}}</div>
+        <div class="price">
+            {{price currency=@price.currency}}{{t "0"}}
+        </div>
+        <div class="term">{{t "forever"}}</div>
+    </div>
+    <ul class="table-details icon-list">
+        <li>Access to all free private posts</li>
+        <li>Weekly new content</li>
+        <li>Support independent publishing</li>
+        <li>No card details required</li>
+    </ul>
+    <div class="table-footer text-center">
+        {{#link class="btn btn-lg" href="/signup/"}}{{t "Subscribe now"}}{{/link}}
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="share-wrap">
+    <div class="share-title h5 text-center">{{t "Share this article:"}}</div>
+    <div class="share-links flex">
+            {{!-- facebook --}}
+            <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="{{t "Share on Facebook"}}">{{> icons/facebook}}</a>
+            {{!-- twitter --}}
+            <a class="twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}" onclick="window.open(this.href, 'twitter-share', 'width=580,height=296');return false;" title="{{t "Share on Twitter"}}">{{> icons/twitter}}</a>
+            {{!-- pinterest --}}
+            <a class="pinterest" href="http://pinterest.com/pin/create/button/?url={{url absolute="true"}}&amp;{{#if feature_image}}media={{img_url feature_image absolute="true"}}{{/if}}&amp;description={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=580,height=296');return false;" title="{{t "Share on Pinterest"}}">{{> icons/pinterest}}</a>
+            {{!-- whatsapp --}}
+            <a class="whatsapp" href="whatsapp://send?text={{url absolute="true"}}" data-action="share/whatsapp/share" onclick="window.open(this.href, 'linkedin-share', 'width=580,height=296');return false;" title="{{t "Share on Whatsapp"}}">{{> icons/whatsapp}}</a>
+            {{!-- linkedin --}}
+            <a class="linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{url absolute="true"}}&amp;title={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=580,height=296');return false;" title="{{t "Share on Linkedin"}}">{{> icons/linkedin}}</a>
+            {{!-- email --}}
+            <a class="link" href="mailto:?subject={{encode title}}&amp;body={{url absolute="true"}}" title="{{t "Send via email"}}" rel="noopener" target="_blank">{{> icons/envelope}}</a>
+            {{!-- permalink --}}
+            <a class="link js-copy-link" href="#"  onclick="return false;" data-clipboard-text="{{url absolute="true"}}" title="{{t "Copy the permalink"}}" rel="noopener">{{> icons/link}}</a>
+       
+    </div>
+    <div class="js-notification-copy-link text-center"><span>{{t "The link has been Copied to clipboard!"}}</span></div>
+</div>

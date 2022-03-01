@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+	<head>
+		{{! Document Settings }}
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{{! Page Meta }}
+		<title>{{meta_title  page=(t " (Page %)")}}</title>
+		{{! Styles'n'Scripts }}
+		{{> google-font}}
+        <link href="{{asset "css/screen.min.css"}}" rel="stylesheet">
+		{{> scripts/color-scheme}}
+		{{! Ghost outputs important style and meta data with this tag }}
+		{{ghost_head}}
+	</head>
+	<body class="no-header-footer {{body_class}}">
+		<div class="site-wrap">
+		{{> icons/global-icons}}
+		{{{body}}}
+		</div>
+		{{!-- The #block helper will pull in data from the #contentFor other template files. --}}
+		{{{block "scripts"}}}
+		{{!-- including theme's javascript --}}
+		<script src="{{asset "js/app.bundle.min.js"}}"></script>
+        {{ghost_foot}}
+	</body>
+</html>

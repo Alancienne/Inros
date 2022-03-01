@@ -1,0 +1,27 @@
+<div class="search-popup js-search-popup">
+    <div class="search-popup-bg"></div>
+	<a href="javascript:;" class="close-button" id="search-close" aria-label="Close search">
+		<svg><use xlink:href="#i-close"/></svg>
+	</a>
+	<div class="popup-inner">
+        <div class="inner-container">
+            <form class="search-form" id="search-form">
+                <div class="search-form-box flex">
+                    <input type="text" class="search-input" placeholder="{{t "Type to search"}}" id="search-input" aria-label="Type to search" role="searchbox" autocomplete="off">
+                </div>
+            </form>
+            <div class="search-close-note">{{t "Press ESC to close."}}</div>
+            <div class="search-result" id="search-results"></div>
+            {{#get "tags" limit="10" filter="visibility:public" include="count.posts" order="count.posts desc"}}
+            <div class="suggested-tags tag-wrap" id="suggested-tags">
+                <h2 class="h6">{{t "Browse posts by popular tags"}}</h2>
+                <div class="tag-list">
+                    {{#foreach tags}}
+                    <a href="{{url}}" {{#if accent_color}} style="--c-theme:{{accent_color }};"{{/if}}>{{name}}</a>
+                    {{/foreach}}
+                </div>
+            </div>
+            {{/get}}
+        </div>
+	</div>
+</div>

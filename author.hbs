@@ -1,0 +1,66 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the {body} of the default.hbs template --}}
+<div class="main">
+    {{#author}}
+    <div class="container">
+        <div class="archive-cover">
+            <div class="archive-cover-inner cover-author flex{{#if cover_image}} has-image{{/if}}">
+                {{#if cover_image}}
+                <img class="cover-image lazy" loading="lazy"
+                    srcset="{{img_url cover_image size="s"}} 400w,
+                        {{img_url cover_image size="m"}} 600w,
+                        {{img_url cover_image size="l"}} 1000w,
+                        {{img_url cover_image size="l"}} 1200w,
+                        {{img_url cover_image size="xl"}} 1400w,"
+                    sizes="(max-width: 440px) 400px, (max-width: 640px) 600px, (max-width: 1080px) 1000px, (max-width:1280px) 1200px, 1400px"
+                    src="{{img_url cover_image size="xl"}}" alt="author {{name}} cover image">
+                {{/if}}
+                <div class="cover-content-wrapper">
+                    <div class="avatar-wrap">
+                        {{#if profile_image}}
+                        <img class="avatar" src="{{img_url profile_image size="xs"}}" loading="lazy" alt="{{name}}">
+                        {{else}}
+                        <div class="avatar no-image">{{> icons/user}}</div>
+                        {{/if}}
+                    </div>
+                    <div class="author-info">
+                        <h1 class="name h2">{{name}}</h1>
+                        <div class="author-meta">
+                            {{#if location}}
+                            <span class="author-location">{{t "From"}} {{location}}</span>
+                            {{/if}}
+                            <span class="post-count">{{plural ../pagination.total empty=(t "0 post") singular=(t "1 post") plural=(t "% posts")}}</span>
+                        </div>
+                        {{#if bio}}
+                        <div class="bio">
+                            {{{bio}}}
+                        </div>
+                        {{/if}}
+                        <div class="author-social">
+                            {{#if twitter}}
+                            <a href="{{twitter_url}}" target="_blanK" rel="noopener">{{> icons/twitter}}</a>
+                            {{/if}}
+                            {{#if facebook}}
+                            <a href="{{facebook_url}}" target="_blanK" rel="noopener">{{> icons/facebook}}</a>
+                            {{/if}}
+                            {{#if website}}
+                            <a href="{{website}}" target="_blanK" rel="noopener">{{> icons/globe}}</a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/author}}
+    <div class="container">
+        <div class="row js-post-list-wrap post-list-wrap">
+            {{> loop}}
+        </div>
+    </div>
+    {{pagination}}
+</div>
+{{!-- Show subscription section to guest visitors --}}
+{{#unless @member}}
+{{> newsletter-subscription}}
+{{/unless}}

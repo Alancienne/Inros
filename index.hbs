@@ -1,0 +1,25 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the {body} of the default.hbs template --}}
+<div class="main">
+{{#is "home"}}
+{{> home-intro}}
+{{/is}}
+
+{{!-- Featured posts section. Available layout option: "featured-posts-one" and "featured-posts-two" --}}
+{{#is "home"}}
+{{> featured-posts}}
+{{/is}}
+<div class="container">
+    <div class="row js-post-list-wrap post-list-wrap">
+        <div class="col-lg-12">
+            <h2 class="h4 section-title">{{t "Most recent posts"}}</h2>
+        </div>
+        {{> loop}}
+    </div>
+</div>
+{{pagination}}
+</div>
+{{!-- Show subscription section to guest visitors --}}
+{{#unless @member}}
+{{> newsletter-subscription}}
+{{/unless}}

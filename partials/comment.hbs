@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="comment-wrap">
+        <div class="comment-container">
+            <div class="comment-placeholder text-center">
+                <span>{{t "Loading comments..."}}</span>
+            </div>
+            <div id="disqus_thread" class="disqus-comment-wrap"></div>
+            <script>
+                var disqus_shortname = disqusShortName;
+                var pageUrl = '{{url absolute="true"}}';
+                var pageIdentifier = 'ghost-{{comment_id}}';
+            </script>
+        </div>
+    </div>
+</div>

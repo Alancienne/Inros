@@ -1,0 +1,10 @@
+{{#if @site.logo}}
+<a href="{{@site.url}}" class="logo-img theme-light-logo">
+    <img src="{{@site.logo}}" alt="{{@site.title}}">
+</a>
+<a href="{{@site.url}}" class="logo-img theme-dark-logo">
+    <img src="{{asset "images/dark-theme-logo.svg"}}" alt="{{@site.title}}">
+</a>
+{{else}}
+<a href="{{@site.url}}" class="logo-text">{{@site.title}}</a>
+{{/if}}

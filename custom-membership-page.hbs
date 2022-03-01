@@ -1,0 +1,89 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+<div class="main">
+    {{#post}}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <article class="single-post post-card custom-archive">
+                    <header class="post-header">
+                        <h1 class="heading-large page-title text-center">
+                            {{title}}
+                        </h1>
+                        {{#if @member.paid}}
+                        {{!-- Logged in, paying member: show account page link --}}
+                        <div class="custom-page-post-content">
+                            {{t "Hay! You have already subscribed to premium membership plan. To see your account information please"}} {{#link href="/account/"}}{{t "visit account Page"}}{{/link}}
+                        </div>
+                        {{else}}
+                        <div class="custom-page-post-content">
+                            {{content}}
+                        </div>
+                        {{/if}}
+                    </header>
+                    {{#if feature_image}}
+                    <div class="featured-image-wrap">
+                        <img class="featured-image" loading="lazy"
+                            srcset="{{img_url feature_image size="s"}} 300w,
+                                {{img_url feature_image size="m"}} 600w,
+                                {{img_url feature_image size="l"}} 1200w,"
+                            sizes="(max-width: 340px) 300px, (max-width: 640px) 600px, 1200px"
+                            src="{{img_url feature_image size="l"}}" alt="{{title}}">
+                    </div>
+                    {{/if}}
+                </article>
+            </div>
+        </div>
+    </div>
+    {{/post}}
+    <div class="container">
+        <div class="row">
+            {{#if @member.paid}}
+            {{!-- do not show any pricing table --}}
+            {{else if @member}}
+            {{!-- free member: show premium plans --}}
+            <div class="col-lg-4 col-md-6 offset-md-2 pricing-table-wrap">
+                {{> members/pricing-table-monthly}}
+            </div>
+            <div class="col-lg-4 col-md-6 pricing-table-wrap">
+                {{> members/pricing-table-yearly}}
+            </div>
+            {{else}}
+            {{!-- guest visitor: show all plans --}}
+            <div class="col-lg-4 col-md-6 pricing-table-wrap">
+                {{> members/pricing-table-free}}
+            </div>
+            <div class="col-lg-4 col-md-6 pricing-table-wrap">
+                {{> members/pricing-table-monthly}}
+            </div>
+            <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 pricing-table-wrap">
+                {{> members/pricing-table-yearly}}
+            </div>
+            {{/if}}
+        </div>
+        {{#unless @member.paid}}
+        <div class="row">
+            <div class="col-12">
+                <div class="pricing-currency">
+                    <sup>*</sup> {{t "All price is in"}} <span class="currency-name">{{@price.currency}}</span>
+                </div>
+            </div>
+        </div>
+        {{/unless}}
+        <div class="row">
+            <div class="col-12">
+                {{^if @member}}
+                <div class="membership-footer">
+                    <div class="alternate-option text-center">
+                        {{t "Already have an account?"}} <a href="{{@site.url}}/signin/">{{t "Sign in"}}</a>
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- insert discunt calculator script in default.hbs template --}}
+{{#contentFor "scripts"}}
+{{> scripts/discount-calculator}}
+{{/contentFor}}

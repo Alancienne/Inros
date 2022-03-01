@@ -1,0 +1,79 @@
+{
+    "name": "inros",
+    "description": "Minimal personal blog theme",
+    "demo": "http://hedei.gbjsolution.com",
+    "version": "1.2.0",
+    "engines": {
+        "ghost": ">=4.0.0",
+        "ghost-api": "v4"
+    },
+    "screenshots": {
+        "desktop": "assets/screenshot-desktop.jpg",
+        "mobile": "assets/screenshot-mobile.jpg"
+    },
+    "author": {
+        "name": "GBJ solution",
+        "email": "gbjsolution@gmail.com",
+        "url": "https://gbjsolution.com"
+    },
+    "gpm": {
+        "type": "theme",
+        "categories": [
+            "Minimal",
+            "Personal Blogs",
+            "Magazine Layouts"
+        ]
+    },
+    "keywords": [
+        "ghost",
+        "theme",
+        "ghost-theme",
+        "personal",
+        "minimal"
+    ],
+    "config": {
+        "posts_per_page": 9,
+        "image_sizes": {
+            "xs": {
+                "width": 150
+            },
+            "s": {
+                "width": 300
+            },
+            "m": {
+                "width": 600
+            },
+            "l": {
+                "width": 1200
+            },
+            "xl": {
+                "width": 1400
+            }
+        }
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.3.1",
+        "browser-sync": "^2.27.5",
+        "del": "^6.0.0",
+        "gulp": "^4.0.2",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-postcss": "^9.0.0",
+        "gulp-rename": "^2.0.0",
+        "gulp-sass": "^5.0.0",
+        "gulp-sourcemaps": "^3.0.0",
+        "gulp-uglify": "^3.0.2",
+        "gulp-wait": "0.0.2",
+        "gulp-zip": "^5.1.0",
+        "postcss": "^8.3.6",
+        "sass": "^1.37.0"
+    },
+    "dependencies": {
+        "clipboard": "^2.0.8",
+        "disqusLoader.js": "git+https://github.com/osvaldasvalutis/disqusLoader.js.git",
+        "medium-zoom": "^1.0.6",
+        "prismjs": "^1.24.1",
+        "reframe.js": "^3.0.3",
+        "searchinghost": "^1.6.2"
+    }
+}

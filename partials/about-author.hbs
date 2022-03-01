@@ -1,0 +1,20 @@
+<h3 class="h4 about-author-section-title">{{t "Written by"}}</h3>
+{{#foreach authors}}
+<div class="about-author flex">
+    <div class="avatar-wrap">
+        {{#if profile_image}}
+        <a href="{{url}}" title="{{name}}"><img class="avatar" src="{{img_url profile_image size="xxs"}}" loading="lazy" alt="{{name}}"></a>
+        {{else}}
+         <a href="{{url}}" title="{{name}}"><div class="avatar no-image">{{> icons/user}}</div></a>
+        {{/if}}
+    </div>
+    <div class="author-info">
+        <h3 class="name h4"><a href="{{url}}">{{name}}</a></h3>
+        {{#if bio}}
+        <div class="bio">
+            {{{bio}}}
+        </div>
+        {{/if}}
+    </div>
+</div>
+{{/foreach}}

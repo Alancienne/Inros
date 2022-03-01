@@ -1,0 +1,11 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the {body} of the default.hbs template --}}
+<div class="main">
+    <div class="error-content-wrap text-center">
+        {{!> 404-illustration}}
+        <div class="error-code">{{statusCode}}</div>
+        <h1 class="error-message h3">{{message}}</h1>
+        <p class="message-manual">{{t "Maybe the URL is incorrect, or the page no longer exist."}}</p>
+        <a href="{{@site.url}}" class="btn">{{t "Return to home page"}}</a>
+    </div>
+</div>

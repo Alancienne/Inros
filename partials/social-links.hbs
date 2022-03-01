@@ -1,0 +1,14 @@
+<div class="social-links-wrap flex">
+    <div class="social-links flex">
+        {{#if @site.twitter}}
+        <a href="{{twitter_url @site.twitter}}" aria-label="twitter link">{{> icons/twitter}}</a>
+        {{/if}}
+        {{#if @site.facebook}}
+        <a href="{{facebook_url @site.facebook}}" aria-label="facebook link">{{> icons/facebook}}</a>
+        {{/if}}
+        {{!-- following are the social links which you have to set here --}}
+        {{!-- You can remove or add as many as you want  --}}
+        <a href="#" aria-label="instagram link">{{> icons/instagram}}</a>
+        <a href="#" aria-label="github link">{{> icons/github}}</a>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<section class="featured-posts">
+    <div class="container featured-post-layout-one">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="h4 section-title">{{t "Featured Posts"}}</h2>
+            </div>
+            {{#get "posts" limit="6" include="tags,authors" filter="featured:true"}}
+            <div class="col-xl-7 col-lg-6">
+            {{#foreach posts}}
+            {{#if @first}}
+                <article class="post-card flex">
+                    {{#if feature_image}}
+                    <a href="{{url}}" class="post-img-wrap">
+                        <img loading="lazy"
+                            srcset="{{img_url feature_image size="s"}} 300w,
+                                {{img_url feature_image size="m"}} 600w,
+                                {{img_url feature_image size="l"}} 1200w,"
+                            sizes="(max-width: 340px) 300px, (max-width:640px) 600px, (max-width: 991px) 1200px, (min-width: 992px) and (max-width: 1199px) 600px, 1200px"
+                            src="{{img_url feature_image size="l"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}">
+                    </a>
+                    {{/if}}
+                    <div class="post-info-wrap">
+                        {{#primary_tag}}
+                        <div class="tag-wrap">
+                            <a href="{{url}}" {{#if accent_color}} style="--c-theme:{{accent_color }};"{{/if}}>{{name}}</a>
+                        </div>
+                        {{/primary_tag}}
+                        <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+                        <div class="post-excerpt">
+                            {{excerpt}}
+                        </div>
+                        {{> post-card-meta}}
+                    </div>
+                </article>
+            </div>
+            <div class="col-xl-5 col-lg-6 small-posts-wrap">
+            {{else}}
+                <article class="post-card post-small flex">
+                    {{#if feature_image}}
+                    <a href="{{url}}" class="post-img-wrap">
+                        <img loading="lazy" src="{{img_url feature_image size="m"}}" alt="{{title}}">
+                    </a>
+                    {{/if}}
+                    <div class="post-info-wrap">
+                        {{#primary_tag}}
+                        <div class="tag-wrap">
+                            <a href="{{url}}" {{#if accent_color}} style="--c-theme:{{accent_color }};"{{/if}}>{{name}}</a>
+                        </div>
+                        {{/primary_tag}}
+                        <h2 class="h4 post-title"><a href="{{url}}">{{title}}</a></h2>
+                    </div>
+                </article>
+                {{/if}}
+                {{/foreach}}
+            </div>
+            {{/get}}
+        </div>
+    </div>
+</section>

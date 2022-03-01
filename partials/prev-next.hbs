@@ -1,0 +1,57 @@
+<div class="prev-nex-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                {{#next_post}}
+                <div class="post prev-post">
+                    <a href="{{url}}" class="flex">
+                        {{#if feature_image}}
+                        <div class="featured-image">
+                            <img loading="lazy"
+                            srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image size="m" }} 600w,"
+                            sizes="(max-width: 340px) 300px, (min-width: 341px) and (max-width: 575px) 600px, 300px"
+                            src="{{img_url feature_image size=" l"}}" alt="{{title}}">
+                        </div>
+                        {{/if}}
+                        <div class="content-wrap">
+                            <div class="nav-text">{{t "Newer article"}}</div>
+                            <h4 class="title">{{title}}</h4>
+                            <div class="post-meta">
+                                <time class="post-date" datetime="{{date format=" YYYY-MM-DD"}}">{{date format="MMM DD,
+                                    YYYY"}}</time>
+                                <span class="read-time">{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{/next_post}}
+            </div>
+            <div class="col-lg-6">
+                {{#prev_post}}
+                <div class="post next-post">
+                    <a href="{{url}}" class="flex">
+                        {{#if feature_image}}
+                        <div class="featured-image">
+                            <img loading="lazy"
+                            srcset="{{img_url feature_image size="s"}} 300w,
+                                    {{img_url feature_image size="m"}} 600w,"
+                            sizes="(max-width: 340px) 300px, (min-width: 341px) and (max-width: 575px) 600px, 300px"
+                            src="{{img_url feature_image size="l"}}" alt="{{title}}">
+                        </div>
+                        {{/if}}
+                        <div class="content-wrap">
+                            <div class="nav-text">{{t "Older article"}}</div>
+                            <h4 class="title">{{title}}</h4>
+                            <div class="post-meta">
+                                <time class="post-date" datetime="{{date format=" YYYY-MM-DD"}}">{{date format="MMM DD,
+                                    YYYY"}}</time>
+                                <span class="read-time">{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{/prev_post}}
+            </div>
+        </div>
+    </div>
+</div>

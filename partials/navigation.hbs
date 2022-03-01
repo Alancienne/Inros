@@ -1,0 +1,110 @@
+{{#unless isSecondary}}
+    {{!-- STRAT primary navigation used at header --}}
+    <nav class="nav-wrap flex" role="navigation" aria-label="Main navigation">
+        <ul class="nav-left no-style-list" role="menu">
+            {{!-- change 4 to any number of navigation you want to show before more dropdown  --}}
+            {{#foreach navigation to="4"}}
+            <li class="nav-item" role="menuitem">
+                <a href="{{url}}" class="nav-link{{#if current}} nav-current{{/if}}">{{label}}</a>
+            </li>
+            {{/foreach}}
+            {{!-- change 5 to the next number which you have set above.  --}}
+            {{#foreach navigation from="5"}}
+            {{#if @first}}
+            <li class=" has-dropdown"><a href="#" class="nav-link more-link">{{t "More"}} {{> icons/arrow-v-down}}</a>
+                <ul class="no-style-list dropdown-menu">
+                {{/if}}
+                    <li class="nav-item" role="menuitem">
+                        <a href="{{url}}" {{#if current}}class="nav-current"{{/if}}>{{label}}</a>
+                    </li>
+                {{#if @last}}
+                </ul>
+            </li>
+            {{/if}}
+            {{/foreach}}
+        </ul>
+
+        {{!-- Start of hardcoded navigation for signup and signin --}}
+        {{#unless @member}}
+        <ul class="nav-right no-style-list" role="menu">
+            <li class="nav-item" role="menuitem">
+                {{#link href="/#/portal/signin/" class="nav-link" activeClass="nav-current"}}{{t "Sign in"}}{{/link}}
+            </li>
+            <li class="nav-item" role="menuitem">
+                {{#link href="/#/portal/signup/" class="btn btn-sm" activeClass="nav-current"}}{{t "Sign Up"}}{{/link}}
+            </li>
+        </ul>
+        {{else}}
+        <ul class="nav-right no-style-list" role="menu">
+            <li class="nav-item" role="menuitem">
+                {{#link href="/#/portal/account/" class="user-links" activeClass="nav-current"}}{{t "Account"}}{{/link}}
+            </li>
+            <li class="nav-item" role="menuitem">
+                <a href="javascript:;" data-members-signout class="user-links">{{t "Sign out"}}</a>
+            </li>
+        </ul>
+        {{/unless}}
+        {{!-- End of hardcoded navigation for signup and signin --}}
+        {{!-- icons --}}
+        <div class="icons-wrap">
+            <a href="javascript:;" class="nav-icon search-icon flex js-search-button" aria-label="Open search">
+                <svg><use xlink:href="#i-search"/></svg>
+            </a>
+        </div>
+    </nav>
+    {{!-- END primary navigation used at header --}}
+{{else}}
+
+    {{!-- START secondary navigation used in footer --}}
+    {{!-- first column --}}
+    {{#foreach navigation limit="4"}}
+    {{#if @first}}
+    <div class="nav-col">
+        {{!-- Edit first column title in next line --}}
+        <h3 class="title h6">{{t "Features"}}</h3>
+        <nav>
+        <ul class="no-style-list">
+            {{/if}}
+                <li class="nav-link"><a href="{{url absolute="true"}}">{{label}}</a></li>
+            {{#if @last}}
+            </ul>
+        </nav>
+    </div>
+    {{/if}}
+    {{/foreach}}
+
+    {{!-- second column --}}
+    {{#foreach navigation limit="4" from="5"}}
+    {{#if @first}}
+    <div class="nav-col">
+        {{!-- Edit second column title in next line --}}
+        <h3 class="title h6">{{t "Members"}}</h3>
+        <nav>
+            <ul class="no-style-list">
+            {{/if}}
+                <li class="nav-link"><a href="{{url absolute="true"}}">{{label}}</a></li>
+            {{#if @last}}
+            </ul>
+        </nav>
+    </div>
+    {{/if}}
+    {{/foreach}}
+
+    {{!-- third column --}}
+    {{#foreach navigation from="9"}}
+    {{#if @first}}
+    <div class="nav-col">
+        {{!-- Edit third column title in next line --}}
+        <h3 class="title h6">{{t "About"}}</h3>
+        <nav>
+        <ul class="no-style-list">
+            {{/if}}
+                <li class="nav-link"><a href="{{url absolute="true"}}">{{label}}</a></li>
+            {{#if @last}}
+            </ul>
+        </nav>
+    </div>
+    {{/if}}
+    {{/foreach}}
+    {{!-- END secondary navigation used in footer --}}
+{{/unless}}

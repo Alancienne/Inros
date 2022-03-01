@@ -1,0 +1,32 @@
+<div class="post-meta-wrap flex">
+    {{#primary_author}}
+    <div class="author-avatar-wrap">
+        <a href="{{url}}" class="author-image">
+            {{#if profile_image}}
+            <img src="{{img_url profile_image size="xs"}}" loading="lazy" alt="{{name}}">
+            {{else}}
+            <div class="avatar no-image"><svg><use xlink:href="#i-user"/></svg></div>
+            {{/if}}
+        </a>
+    </div>
+    {{/primary_author}}
+    <div class="meta-info">
+        <div class="author-names">
+            {{#has author="count:>2"}}
+            {{#primary_author}}
+            <a href="{{url}}">{{name}}</a>
+            {{/primary_author}}
+            {{t "and other authors"}}
+            {{else}}
+            {{#foreach authors}}
+            {{^if @first}}{{t "&"}}{{/if}}
+            <a href="{{url}}">{{name}}</a>
+            {{/foreach}}
+            {{/has}}
+        </div>
+        <div class="date-time">
+            <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMM DD, YYYY"}}</time>
+            <span class="read-time">{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+        </div>
+    </div>
+</div>

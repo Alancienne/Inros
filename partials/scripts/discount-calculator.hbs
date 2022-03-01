@@ -1,0 +1,21 @@
+{{!-- 
+this idea taken from portal script 
+https://github.com/TryGhost/Portal/blob/9967de924bfb9e79b9fbf993e6833b0a686e4ead/src/utils/discount.js
+--}}
+<script>
+    let monthly = {{@price.monthly}};
+    let yearly = {{@price.yearly}};
+    let discount = 0;
+    if (!isNaN(monthly) || !isNaN(yearly)) {
+        discount = monthly ? 100 - Math.floor((yearly / 12 * 100) / monthly) : 0;
+    }
+    if (discount > 0) {
+        
+        document.querySelectorAll('.js-discount-amount').forEach(function(el) {
+            el.innerHTML = '&nbsp;' + discount + '%';
+        });
+        document.querySelectorAll('.js-discount').forEach(function(el) {
+            el.classList.add('visible');
+        })
+    }
+</script>

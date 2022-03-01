@@ -1,0 +1,35 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+<div class="main">
+    {{#post}}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <article class="single-post post-card custom-archive">
+                    <header class="post-header">
+                        <h1 class="heading-large page-title text-center">
+                            {{title}}
+                        </h1>
+                        <div class="custom-page-post-content">
+                            {{content}}
+                        </div>
+                    </header>
+                </article>
+            </div>
+        </div>
+    </div>
+    {{/post}}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="archive-wrap">
+                    {{#get "posts" limit="all"}}
+                    {{#foreach posts}}
+                        {{> yearly-archive-post-card}}
+                    {{/foreach}}
+                    {{/get}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

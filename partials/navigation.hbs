@@ -25,25 +25,6 @@
         </ul>
 
         {{!-- Start of hardcoded navigation for signup and signin --}}
-        {{#unless @member}}
-        <ul class="nav-right no-style-list" role="menu">
-            <li class="nav-item" role="menuitem">
-                {{#link href="/#/portal/signin/" class="nav-link" activeClass="nav-current"}}{{t "Sign in"}}{{/link}}
-            </li>
-            <li class="nav-item" role="menuitem">
-                {{#link href="/#/portal/signup/" class="btn btn-sm" activeClass="nav-current"}}{{t "Sign Up"}}{{/link}}
-            </li>
-        </ul>
-        {{else}}
-        <ul class="nav-right no-style-list" role="menu">
-            <li class="nav-item" role="menuitem">
-                {{#link href="/#/portal/account/" class="user-links" activeClass="nav-current"}}{{t "Account"}}{{/link}}
-            </li>
-            <li class="nav-item" role="menuitem">
-                <a href="javascript:;" data-members-signout class="user-links">{{t "Sign out"}}</a>
-            </li>
-        </ul>
-        {{/unless}}
         {{!-- End of hardcoded navigation for signup and signin --}}
         {{!-- icons --}}
         <div class="icons-wrap">

@@ -5,10 +5,26 @@ routes:
     data: page.archive
 
 collections:
+  /recettes/:
+    permalink: /recettes/{slug}/
+    template: index
+    filter: 'tag:recettes'
+  /produits/:
+    permalink: /produits/{slug}/
+    template: index
+    filter: 'tag:produits'
+  /agroecologie/:
+    permalink: /agroecologie/{slug}/
+    template: index
+    filter: 'tag:agroecologie'
+  /producteurs/:
+    permalink: /producteurs/{slug}/
+    template: index
+    filter: 'tag:producteurs'
   /:
-    permalink: /{slug}/
+    permalink: /{primary_tag}/{slug}/
     template: index
 
 taxonomies:
-  tag: /tag/{slug}/
+  tag: /{slug}/
   author: /author/{slug}/

@@ -9,18 +9,22 @@ collections:
     permalink: /recettes/{slug}/
     template: index
     filter: 'tag:recettes'
+    data: tag.index
   /produits/:
     permalink: /produits/{slug}/
     template: index
     filter: 'tag:produits'
+    data: tag.index
   /agroecologie/:
     permalink: /agroecologie/{slug}/
     template: index
     filter: 'tag:agroecologie'
+    data: tag.index
   /producteurs/:
     permalink: /producteurs/{slug}/
     template: index
     filter: 'tag:producteurs'
+    data: tag.index
   /:
     permalink: /{primary_tag}/{slug}/
     template: index

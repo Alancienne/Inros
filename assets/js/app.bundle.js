@@ -251,6 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
             })
         });
         var searchinGhost = new SearchinGhost({
+            url: apiUrl,
             key: apiKey,
             inputId: ['search-input'],
             outputId: ['search-results'],
@@ -260,13 +261,13 @@ document.addEventListener("DOMContentLoaded", function () {
             postsExtraFields: ['tags'],
             template: function(post) {
                 var o = '';
-                o += '<a href="' + post.url + '"><div class="content">';
+                postUrl = post.url.replace(apiUrl, mainUrl);
+                o += '<a href="' + postUrl + '"><div class="content">';
                 o += '<h3 class="title h4">' + post.title + '</h3> <div class="meta">';
                 o += '<time>' + post.published_at + '</time></div></div></a>';
                 return o;
             },
             onSearchEnd: function(posts) {
-                console.log(posts.length);
                 if (searchResult.scrollHeight > searchResult.offsetHeight) {
                     searchResult.style.paddingRight = "8px";
                 } else {

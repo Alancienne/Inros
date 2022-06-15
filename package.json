@@ -72,7 +72,7 @@
         "clipboard": "^2.0.8",
         "disqusLoader.js": "git+https://github.com/osvaldasvalutis/disqusLoader.js.git",
         "medium-zoom": "^1.0.6",
-        "prismjs": "^1.24.1",
+        "prismjs": "^1.27.0",
         "reframe.js": "^3.0.3",
         "searchinghost": "^1.6.2"
     }
